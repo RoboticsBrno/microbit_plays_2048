@@ -48,12 +48,13 @@ CELL_STYLES = {
 }
 
 # Define constants for the screen width and height
+DPI_MUL = 1.25
 BORDER_WIDTH = 10
-TILE_SIZE = 150
+TILE_SIZE = 100*DPI_MUL
 NUMBER_OF_ROWS = NUMBER_OF_COLUMNS = 4
 SCREEN_WIDTH = SCREEN_HEIGHT = ((NUMBER_OF_ROWS + 1) * BORDER_WIDTH) + (NUMBER_OF_ROWS * TILE_SIZE)
 
-FONT_SIZE = int(24*1.5)
+FONT_SIZE = int(24*DPI_MUL)
 
 MOVE_TIMER = 10
 
@@ -122,9 +123,9 @@ class Game:
         self.tiles = self.initialise_tiles()
 
 
-        self.score_font = pygame.font.SysFont('Arial', 80)
-        self.info_font = pygame.font.SysFont("Arial", 25)
-        self.votes_font = pygame.font.SysFont("Arial", 40)
+        self.score_font = pygame.font.SysFont('Arial', int(80*DPI_MUL))
+        self.info_font = pygame.font.SysFont("Arial", int(25*DPI_MUL))
+        self.votes_font = pygame.font.SysFont("Arial", int(40*DPI_MUL))
 
         self.next_move = time.monotonic() + MOVE_TIMER
         self.votes = [ 0 for _ in Command ]
